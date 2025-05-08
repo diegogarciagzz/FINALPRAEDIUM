@@ -1,3 +1,115 @@
+
+/* Grid para las tarjetas de información */
+.praedium-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+/* Estilos para las tarjetas de información */
+.info-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+    padding: 2rem;
+    min-height: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.card-header {
+    color: #005580;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #005580;
+}
+
+.card-content {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Iconos de las tarjetas */
+.icon-container {
+    position: absolute;
+    top: 0.3rem; /* Posición más arriba */
+    right: 1rem;
+    opacity: 0.9;
+}
+
+.info-icon {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover .info-icon {
+    transform: scale(1.1);
+}
+/* Lista de valores */
+.valores-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.valores-list li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+/* Título de asociaciones */
+.asociaciones-title {
+    color: #005580;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Ajustes para el texto destacado */
+.nosotros-text strong {
+    color: #005580;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .praedium-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-card {
+        padding: 1.5rem;
+    }
+    
+    .card-header {
+        font-size: 1.2rem;
+        margin-right: 65px; /* Ajuste para móviles */
+    }
+    
+    .icon-container {
+        top: -0.3rem; /* Posición para móviles */
+        right: 0.8rem;
+    }
+    
+    .info-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+______________________
+
 * {
     margin: 0;
     padding: 0;
@@ -51,7 +163,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
-    gap: 2rem; /* Añade espacio entre los elementos */
+    gap: 3rem; /* Añade espacio entre los elementos */
 }
 
 .nav li {
@@ -144,7 +256,7 @@ body {
 }
 
 .footer-logo {
-    max-width: 200px;
+    max-width: 250px;
     margin-bottom: 1rem;
     filter: brightness(1.2);
 }
