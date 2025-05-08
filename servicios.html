@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header class="header">
-        <div class="logo">
-            <img src="images/Praedium-FirmaInmobiliaria.jpg" alt="Praedium">
-        </div>
+<body>   <header class="header">
+    <div class="logo">
+        <img src="images/Praedium-FirmaInmobiliaria.jpg" alt="Praedium">
+    </div>
+</header>
 
-    </header>
-
-  <nav class="nav">
+<nav class="nav">
     <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="nosotros.html">Nosotros</a></li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="equipo.html">Equipo</a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="equipo.html">Equipo</a></li>
     </ul>
-  </nav>
+</nav>
+
+
 
 
   <section class="servicios">
@@ -89,55 +89,65 @@
 </section>
 
  
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>Información de contacto</h3>
-            <ul class="contact-info">
-                <li>📞 (81) 2082 9357</li>
-                <li>💬 (81) 1272 2672</li>
-                <li>✉️ contacto@praedium.mx</li>
-                <li>📍 Av. Gómez Morín 1020, Valle de Chipinque, San Pedro Garza García N.L. C.P 66250</li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3>Menú</h3>
-            <ul class="footer-menu">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="equipo.html">Equipo</a></li>
-            </ul>
-
+    <!-- Botones flotantes -->
+    <a href="https://wa.me/8112722672" class="float-button whatsapp">
+        <img src="images/Nueva carpeta/PngItem_1139670.png" alt="WhatsApp">
+    </a>
+    <a href="#contacto" class="float-button contact">
+        <img src="images/Nueva carpeta/pngegg.png" alt="Contacto">
+    </a>
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Sección del logo -->
+            <div class="footer-section">
+                <img src="images\Logo-PRAEDIUM-FirmaInmobiliaria.png" alt="Praedium" class="footer-logo">
+               
+            </div>
+            
+            <!-- Sección de información de contacto -->
+            <div class="footer-section">
+                <h3>Información de contacto</h3>
+                <ul class="contact-info">
+                    <li>📞 (81) 2082 9357</li>
+                    <li>💬 (81) 1272 2672</li>
+                    <li>✉️ contacto@praedium.mx</li>
+                    <li>📍 Av. Gómez Morín 1020, Valle de Chipinque, San Pedro Garza García N.L. C.P 66250</li>
+                </ul>
+            </div>
+            
+            <!-- Sección del menú -->
+            <div class="footer-section">
+                <h3>Menú</h3>
+                <ul class="footer-menu">
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="#propiedades">Propiedades</a></li>
+                    <li><a href="#desarrollos">Desarrollos</a></li>
+                    <li><a href="equipo.html">Equipo</a></li>
+                </ul>
+            </div>
+        
+      
+    <!-- Abajo centrado -->
     <div class="footer-bottom">
-        <p>Aviso de privacidad</p>
         <p>PRAEDIUM® 2025 Todos los derechos reservados.</p>
-        <p></p>
-    </div>
-</footer>
-
-<!-- Botones flotantes -->
-<a href="https://wa.me/8112722672" class="float-button whatsapp">
-    <img src="images/whatsapp.png" alt="WhatsApp">
-</a>
-<a href="#contacto" class="float-button contact">
-    <img src="images/house.png" alt="Contacto">
-</a>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+      </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
