@@ -1,4 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header y Logo */
+.header {
+    display: flex;
+    justify-content: flex-start; /* Logo a la izquierda */
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background: white;
+    height: 80px; /* Altura fija para el header */
+}
+
+.logo {
+    max-width: 150px; /* Tamaño del logo */
+    padding: 0;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Navegación */
+.nav {
+    background: #444;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around; /* Distribuye los elementos uniformemente */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 2rem; /* Añade espacio entre los elementos */
+}
+
+.nav li {
+    text-align: center;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    display: block;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 80%;
+}
+
+.hero {
+    position: relative;
+    width: 100vw; /* Asegura que ocupe todo el ancho */
+    height: 400vh; /* Ajusta la altura según tus necesidades */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
+}
+
+.hero-image {
+    width: 100vw; /* Asegura que la imagen ocupe todo el ancho */
+    height: 100vh; /* Asegura que la imagen ocupe toda la altura */
+    object-fit: cover; /* Recorta la imagen para que se ajuste al contenedor */
+    object-position: center; /* Centra la imagen dentro del contenedor */
+}
+.hero-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alineación a la izquierda */
+    padding-left: 10%; /* Espacio desde la izquierda */
+}
+
+.hero-text {
+    color: white;
+    font-size: 4rem; /* Texto más grande */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para mejorar legibilidad */
+}
+.footer {
+    background: #444;
+    color: white;
+    padding: 3rem 2rem;
+}
+
+
+.footer-section {
+    flex: 1;
+    padding: 0 10px;
+    min-width: 250px;
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    max-width: 200px;
+    margin-bottom: 1rem;
+    filter: brightness(1.2);
+}
+
+.footer-slogan {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.contact-info {
+    list-style: none;
+}
+
+.contact-info li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-menu {
+    list-style: none;
+
+}
+
+.footer-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section:nth-child(3) {
+    text-align: left; /* Asegura que el texto esté alineado a la derecha */
+    margin-left: 80px; /* Alinea el título con el resto del texto */
+
+}
+
+.footer-menu a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-menu a:hover {
+    color: #005580;
+}
+
+/* Botones flotantes - Ajustados para que se vean como en la imagen */
+.float-button {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 100px; /* Posición más alta */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.whatsapp {
+    background-color: #25d366;
+    left: 30px; /* Más cerca del borde */
+}
+
+.contact {
+    background-color: #0088cc; /* Color azul para el botón de casa */
+    right: 30px; /* Más cerca del borde */
+}
+
+.float-button img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        justify-content: center;
+    }
+    
+    .logo {
+        max-width: 150px;
+    }
+    
+    .nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .nav a {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-section {
+        text-align: center !important;
+    }
+}
 * {
     margin: 0;
     padding: 0;
@@ -70,7 +327,7 @@ body {
 .hero {
     height: 80vh;
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-        url('C:\Users\Dell\Documents\Borrador\images\portada.jpg');
+        url('C:\Users\Dell\Documents\Borrador\Fotos e íconos\1 nosotros banner a.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
