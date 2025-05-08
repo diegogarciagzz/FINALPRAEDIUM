@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="images/Praedium-FirmaInmobiliaria.jpg" alt="Praedium">
+        </div>
+
+    </header>
+
+  <nav class="nav">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="equipo.html">Equipo</a></li>
+    </ul>
+  </nav>
+
+
+
+  <section id="nosotros" class="section">
+    <div class="nosotros">
+        <div class="nosotros-content">
+            <h2 class="section-title">Nosotros</h2>
+            <p class="nosotros-text">
+                Somos una firma inmobiliaria que busca innovar a través de servicios de calidad, con transparencia y honestidad.
+            </p>
+            <p class="nosotros-text">
+                Brindamos asesoría y mediación inmobiliaria profesional; compra, venta y renta de inmuebles, para particulares, inversionistas, empresas y desarrolladores.
+            </p>
+            <p class="nosotros-text">
+                Manejamos todo tipo de propiedades, ofrecemos diferentes líneas de servicios especializados de acuerdo con el perfil y necesidades de nuestros clientes.
+            </p>
+            <p class="nosotros-text">
+                Nuestra propuesta de valor se basa en la experiencia, integridad y formalidad, que nos permite proteger los intereses de nuestros clientes a través de la representación en exclusiva, garantizando así un servicio de calidad, confianza y compromiso.
+            </p>
+        </div>
+        <div class="nosotros-logo">
+            <img src="images/logopraedum.jpg" alt="Praedium">
+            <p class="slogan">Tus aliados en bienes raíces ®</p>
+        </div>
+    </div>
+
+    <div class="asociaciones">
+        <img src="images/Logo-AMPI.png" alt="A.M.P.I." class="asociacion-logo">
+        <img src="images/Logo-NAR.png" alt="National Association of Realtors" class="asociacion-logo">
+    </div>
+</section>
+
+ 
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Información de contacto</h3>
+            <ul class="contact-info">
+                <li>📞 (81) 2082 9357</li>
+                <li>💬 (81) 1272 2672</li>
+                <li>✉️ contacto@praedium.mx</li>
+                <li>📍 Av. Gómez Morín 1020, Valle de Chipinque, San Pedro Garza García N.L. C.P 66250</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Menú</h3>
+            <ul class="footer-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="equipo.html">Equipo</a></li>
+            </ul>
+
+    <div class="footer-bottom">
+        <p>Aviso de privacidad</p>
+        <p>PRAEDIUM® 2025 Todos los derechos reservados.</p>
+        <p></p>
+    </div>
+</footer>
+
+<!-- Botones flotantes -->
+<a href="https://wa.me/8112722672" class="float-button whatsapp">
+    <img src="images/whatsapp.png" alt="WhatsApp">
+</a>
+<a href="#contacto" class="float-button contact">
+    <img src="images/house.png" alt="Contacto">
+</a>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
