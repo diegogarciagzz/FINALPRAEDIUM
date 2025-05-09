@@ -535,14 +535,20 @@ body {
     gap: 2rem;
     margin-bottom: 2rem;
 }
+
+/* Modificación para que el elemento de Complementarios ocupe más espacio */
+.servicios-grid .servicio-card:nth-child(5) {
+    grid-column: span 2; /* Hace que ocupe dos columnas */
+}
+
 .servicio-icon {
     position: absolute;
     right: 2rem;
     top: 2rem;
-    width: 80px; /* Aumentado de 60px */
-    height: 80px; /* Aumentado de 60px */
-    opacity: 0.8; /* Aumentado de 0.2 */
-    filter: invert(31%) sepia(93%) saturate(1352%) hue-rotate(179deg) brightness(96%) contrast(101%); /* Añadido para dar color azul corporativo */
+    width: 80px;
+    height: 80px;
+    opacity: 0.4; /* Reducido de 0.8 para que esté más apagado */
+    filter: grayscale(50%); /* Convertir a escala de grises */
 }
 
 .servicio-card {
@@ -552,22 +558,21 @@ body {
     position: relative;
     min-height: 200px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: all 0.3s ease; /* Añadido para efecto hover */
-    overflow: hidden; /* Añadido para contener el icono */
+    transition: all 0.3s ease;
+    overflow: hidden;
 }
 
-/* Añadido efecto hover para la tarjeta */
+/* Efecto hover para la tarjeta */
 .servicio-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-/* Añadido efecto hover para el icono */
+/* Modificado efecto hover para el icono - mantenemos grayscale pero aumentamos opacidad */
 .servicio-card:hover .servicio-icon {
     transform: scale(1.1);
-    opacity: 1;
+    opacity: 0.6;
 }
-
 
 .servicio-titulo {
     color: #005580;
@@ -594,6 +599,12 @@ body {
     color: #005580;
     position: absolute;
     left: 0;
+}
+
+/* Estilo específico para la lista de complementarios para mejorar la distribución */
+.servicios-grid .servicio-card:nth-child(5) .servicio-lista {
+    column-count: 2; /* Divide la lista en dos columnas */
+    column-gap: 2rem;
 }
 
 html {
@@ -872,6 +883,14 @@ section {
 @media (max-width: 768px) {
     .servicios-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .servicios-grid .servicio-card:nth-child(5) {
+        grid-column: span 1;
+    }
+    
+    .servicios-grid .servicio-card:nth-child(5) .servicio-lista {
+        column-count: 1;
     }
 }
  /* Footer Styles */
