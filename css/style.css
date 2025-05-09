@@ -7,6 +7,24 @@
     margin: 4rem 0;
 }
 
+
+/* Contenedor del banner */
+.banner-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 50px;
+  }
+  
+  /* Imagen del banner */
+  .seccion-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 250px; /* Ajusta según el tamaño que necesites */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+  }
+
+
 /* Estilos para las tarjetas de información */
 .info-card {
     background: white;
@@ -107,6 +125,10 @@
         width: 60px;
         height: 60px;
     }
+
+    .seccion-banner {
+        max-height: 100px;
+      }
 }
 ______________________
 
