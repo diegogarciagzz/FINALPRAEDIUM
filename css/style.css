@@ -335,8 +335,8 @@ body {
 /* Botones flotantes - Ajustados para que se vean como en la imagen */
 .float-button {
     position: fixed;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     bottom: 100px; /* Posición más alta */
     border-radius: 50%;
     display: flex;
@@ -350,6 +350,8 @@ body {
 .whatsapp {
     background-color: #25d366;
     left: 30px; /* Más cerca del borde */
+
+
 }
 
 .contact {
@@ -358,8 +360,8 @@ body {
 }
 
 .float-button img {
-    width: 30px;
-    height: 30px;
+    width: 7px;
+    height: 7px;
 }
 
 /* Responsive */
