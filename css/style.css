@@ -1,4 +1,3 @@
-
 /* Grid para las tarjetas de información */
 .praedium-info-grid {
     display: grid;
@@ -771,9 +770,14 @@ html {
     text-align: center;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
+    padding: 1.5rem;
+    min-height: 550px; /* ← Más alto para mejor presentación */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .miembro-card:hover {
@@ -782,9 +786,9 @@ html {
 
 .miembro-imagen {
     width: 100%;
-    height: 300px;
+    height: 400px; /* ← Imagen más alta */
     object-fit: cover;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .miembro-nombre {
@@ -1024,7 +1028,280 @@ section {
     }
 }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 100px;
+/* Estilos para el buscador de propiedades */
+.search-section {
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+.search-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.search-title {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.search-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr auto;
+    gap: 1rem;
+    align-items: end;
+}
+
+.search-field label {
+    display: block;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.search-field select,
+.search-field input {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background: white;
+}
+
+.search-field select:focus,
+.search-field input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.search-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    height: fit-content;
+}
+
+.search-btn:hover {
+    background: white;
+    color: #4a90e2;
+}
+
+/* Estilos para las tarjetas de propiedades */
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.property-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.property-images {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.property-main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.property-card:hover .property-main-image {
+    transform: scale(1.05);
+}
+
+.property-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #007bff;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.property-badge.venta {
+    background: #28a745;
+}
+
+.property-badge.renta {
+    background: #007bff;
+}
+
+.property-price {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.property-info {
+    padding: 1.5rem;
+}
+
+.property-info h3 {
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.property-location {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.property-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.property-details span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.property-details .detail-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+/* Iconos para los detalles */
+.property-details span:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.3rem;
+}
+
+.superficie:before {
+    content: '🏠';
+}
+
+.habitaciones:before {
+    content: '🛏️';
+}
+
+.banos:before {
+    content: '🚿';
+}
+
+/* Botón de favoritos */
+.favorite-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.favorite-btn:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+.favorite-btn.active {
+    background: #ff6b6b;
+    color: white;
+}
+
+/* Responsive para el buscador */
+@media (max-width: 1024px) {
+    .search-form {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .search-field:last-child {
+        grid-column: 1 / -1;
+    }
+    
+    .search-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .properties-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .search-container {
+        padding: 1.5rem;
+    }
+    
+    .search-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .property-card {
+        margin: 0 1rem;
+    }
+    
+    .search-container {
+        margin: 0 1rem;
+        padding: 1rem;
+    }
 }

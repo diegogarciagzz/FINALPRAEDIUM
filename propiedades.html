@@ -2,46 +2,107 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praedium - Firma Inmobiliaria</title>
+    <title>Propiedades - Praedium</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <div class="logo">
             <img src="images/Praedium-FirmaInmobiliaria.jpg" alt="Praedium">
         </div>
+        <div class="header-right">
+            <a href="admin.html" class="admin-link">Admin</a>
+        </div>
     </header>
-    
+
+    <!-- Navegación -->
     <nav class="nav">
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
             <li><a href="servicios.html">Servicios</a></li>
-            <li><a href="propiedades.html">Propiedades</a></li>
+            <li><a href="propiedades.html" class="active">Propiedades</a></li>
             <li><a href="equipo.html">Equipo</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
-    
-    
-   
-<div class="banner-container">
-    <img src="Fotos e íconos/3 banner propiedades.jpg" alt="Banner de sección" class="seccion-banner">
-  </div>
-    
-    <!-- Botones flotantes -->
-    <a href="https://wa.me/8112722672" class="float-button whatsapp">
-        <img src="images/Nueva carpeta/PngItem_1139670.png" alt="WhatsApp">
-    </a>
-    <a href="mailto:contacto@praedium.com.mx" class="float-button contact">
-        <img src="images/Nueva carpeta/pngegg.png" alt="Contacto">
-    </a>
+
+    <!-- Buscador de propiedades -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <h2 class="search-title">Buscador de propiedades</h2>
+                <div class="search-form">
+                    <div class="search-field">
+                        <label>Ubicación</label>
+                        <select id="filter-ubicacion">
+                            <option value="">Seleccione una Ubicación</option>
+                            <option value="monterrey">Monterrey</option>
+                            <option value="san-pedro">San Pedro</option>
+                            <option value="santa-catarina">Santa Catarina</option>
+                            <option value="garcia">García</option>
+                            <option value="nuevo-leon">Nuevo León</option>
+                        </select>
+                    </div>
+
+                    <div class="search-field">
+                        <label>Tipo de Propiedad</label>
+                        <select id="filter-tipo">
+                            <option value="">Seleccione un tipo</option>
+                            <option value="casa">Casa</option>
+                            <option value="departamento">Departamento</option>
+                            <option value="terreno">Terreno</option>
+                            <option value="rancho">Rancho</option>
+                            <option value="local">Local Comercial</option>
+                            <option value="oficina">Oficina</option>
+                        </select>
+                    </div>
+
+                    <div class="search-field">
+                        <label>Precio Min.</label>
+                        <input type="text" id="filter-precio-min" placeholder="Min $0">
+                    </div>
+
+                    <div class="search-field">
+                        <label>Precio Max.</label>
+                        <input type="text" id="filter-precio-max" placeholder="Max $0">
+                    </div>
+
+                    <div class="search-field">
+                        <button id="apply-filters" class="search-btn">Buscar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Propiedades -->
+    <section class="properties-section">
+        <div class="container">
+            <div id="properties-container" class="properties-grid">
+                <!-- Las propiedades se cargarán aquí dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para ver detalles de propiedad -->
+    <div id="property-modal" class="property-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-content-container">
+                <!-- El contenido del modal se cargará aquí -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <!-- Sección del logo -->
             <div class="footer-section">
-                <img src="images\Logo-PRAEDIUM-FirmaInmobiliaria.png" alt="Praedium" class="footer-logo">
-               
+                <img src="images/Logo-PRAEDIUM-FirmaInmobiliaria.png" alt="Praedium" class="footer-logo">
             </div>
             
             <!-- Sección de información de contacto -->
@@ -64,29 +125,69 @@
                     <li><a href="servicios.html">Servicios</a></li>
                     <li><a href="propiedades.html">Propiedades</a></li>
                     <li><a href="equipo.html">Equipo</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </div>
+        </div>
         
-      
-    <!-- Abajo centrado -->
-    <div class="footer-bottom">
-        <p>PRAEDIUM® 2025 Todos los derechos reservados.</p>
-      </div>
+        <!-- Abajo centrado -->
+        <div class="footer-bottom">
+            <p>PRAEDIUM® 2025 Todos los derechos reservados.</p>
+        </div>
     </footer>
-    
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
     <script>
+        // Script adicional para funcionalidades específicas de propiedades
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
+            // Inicializar tooltips o funcionalidades adicionales
+            const propertyCards = document.querySelectorAll('.property-card');
+            
+            // Agregar efectos hover adicionales si es necesario
+            propertyCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Formatear inputs de precio en tiempo real
+            const priceInputs = document.querySelectorAll('#filter-precio-min, #filter-precio-max');
+            priceInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    let value = this.value.replace(/[^\d]/g, '');
+                    if (value) {
+                        value = parseInt(value).toLocaleString('es-MX');
+                        this.value = '$' + value;
                     }
                 });
             });
+
+            // Limpiar filtros
+            const clearButton = document.createElement('button');
+            clearButton.textContent = 'Limpiar';
+            clearButton.className = 'search-btn clear-btn';
+            clearButton.style.background = 'rgba(255,255,255,0.2)';
+            clearButton.onclick = function() {
+                document.getElementById('filter-ubicacion').value = '';
+                document.getElementById('filter-tipo').value = '';
+                document.getElementById('filter-precio-min').value = '';
+                document.getElementById('filter-precio-max').value = '';
+                window.propertyManager.displayProperties();
+            };
+            
+            // Agregar botón limpiar después del botón buscar
+            const searchBtn = document.getElementById('apply-filters');
+            if (searchBtn && searchBtn.parentNode) {
+                const clearField = document.createElement('div');
+                clearField.className = 'search-field';
+                clearField.appendChild(clearButton);
+                searchBtn.parentNode.parentNode.appendChild(clearField);
+            }
         });
     </script>
 </body>
