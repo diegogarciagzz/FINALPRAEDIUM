@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Subir Propiedades</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="admin-container">
@@ -45,12 +45,17 @@
 
             <div class="form-group">
                 <label for="habitaciones">Habitaciones:</label>
-                <input type="number" id="habitaciones" name="habitaciones">
+                <input type="number" id="habitaciones" name="habitaciones" min="0">
             </div>
 
             <div class="form-group">
                 <label for="banos">Baños:</label>
-                <input type="number" id="banos" name="banos">
+                <input type="number" id="banos" name="banos" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="estacionamientos">Estacionamientos:</label>
+                <input type="number" id="estacionamientos" name="estacionamientos" min="0">
             </div>
 
             <div class="form-group">
@@ -59,9 +64,24 @@
             </div>
 
             <div class="form-group">
-                <label for="imagenes">Imágenes:</label>
-                <input type="file" id="imagenes" name="imagenes" multiple accept="image/*" required>
-                <div id="preview-container"></div>
+                <label for="imagenes">Imágenes de la propiedad:</label>
+                <div class="image-upload-simple">
+                    <input type="file" id="imagenes" name="imagenes" multiple accept="image/*" style="display: none;">
+                    
+                    <div class="upload-first-container" id="upload-first-container">
+                        <button type="button" class="upload-first-btn" onclick="document.getElementById('imagenes').click()">
+                            <div class="upload-icon">📷</div>
+                            <span>Subir primera imagen</span>
+                        </button>
+                    </div>
+
+                    <div class="images-container" id="images-container" style="display: none;">
+                        <div class="images-grid" id="images-grid"></div>
+                        <button type="button" class="add-more-btn" onclick="document.getElementById('imagenes').click()">
+                            <span class="plus-icon">+</span> Agregar más imágenes
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">
