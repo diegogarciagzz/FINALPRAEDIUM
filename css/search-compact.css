@@ -1,0 +1,220 @@
+/* ESTILOS PROFESIONALES PARA BARRA DE BÚSQUEDA */
+.search-section {
+  background: linear-gradient(135deg, #005580 0%, #007bb5 100%);
+  padding: 1.5rem 0;
+  border-bottom: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.search-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="20" fill="url(%23grid)"/></svg>');
+  opacity: 0.3;
+}
+
+.search-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  max-width: 1200px;
+  width: 95%;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0, 85, 128, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.search-form-inline {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.2rem;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 160px;
+}
+
+.search-button-field {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex: 0 0 auto;
+  margin-left: 0.5rem;
+}
+
+.search-field label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #005580;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  position: relative;
+}
+
+.search-field label::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 15px;
+  height: 2px;
+  background: linear-gradient(90deg, #005580, #007bb5);
+  border-radius: 1px;
+}
+
+.search-field select,
+.search-field input {
+  padding: 0.7rem 0.8rem;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  background: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-weight: 500;
+}
+
+.search-field select:focus,
+.search-field input:focus {
+  outline: none;
+  border-color: #005580;
+  box-shadow: 0 0 0 3px rgba(0, 85, 128, 0.1), 0 4px 12px rgba(0, 85, 128, 0.15);
+  transform: translateY(-1px);
+}
+
+.search-field select:hover,
+.search-field input:hover {
+  border-color: #007bb5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.clear-btn {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  height: fit-content;
+  white-space: nowrap;
+  background: white;
+  color: #666;
+  border: 2px solid #e1e8ed;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 100px;
+}
+
+.clear-btn:hover {
+  background: #f8f9fa;
+  border-color: #005580;
+  color: #005580;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.search-button-field {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+/* Efectos adicionales */
+.search-field select option {
+  padding: 0.5rem;
+  font-weight: 500;
+}
+
+/* Responsivo mejorado */
+@media (max-width: 1024px) {
+  .search-form-inline {
+    gap: 0.8rem;
+  }
+  
+  .search-container {
+    width: 98%;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .search-field {
+    min-width: 130px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    width: 95%;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+  
+  .search-form-inline {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .search-field {
+    flex: 1 1 calc(50% - 0.5rem);
+    min-width: 140px;
+  }
+  
+  .search-button-field {
+    flex: 1 1 calc(50% - 0.5rem);
+  }
+  
+  .search-btn,
+  .clear-btn {
+    width: 100%;
+    min-width: auto;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-section {
+    padding: 1rem 0;
+  }
+  
+  .search-container {
+    padding: 0.8rem;
+  }
+  
+  .search-form-inline {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .search-field {
+    flex: 1;
+    min-width: auto;
+  }
+  
+  .search-field label {
+    font-size: 0.7rem;
+  }
+  
+  .search-field select,
+  .search-field input {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}

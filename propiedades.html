@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propiedades - Praedium</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search-compact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
@@ -72,12 +73,6 @@
                     </div>
 
                     <div class="search-field search-button-field">
-                        <button id="apply-filters" class="search-btn">
-                            <i class="fas fa-search"></i> Buscar
-                        </button>
-                    </div>
-
-                    <div class="search-field search-button-field">
                         <button id="clear-filters" class="clear-btn">
                             <i class="fas fa-times"></i> Limpiar
                         </button>
@@ -142,7 +137,7 @@
                         this.value = '$' + value;
                     }
                 });
-            });            const searchBtn = document.getElementById('apply-filters');
+            });
         });
     </script>
 </body>
