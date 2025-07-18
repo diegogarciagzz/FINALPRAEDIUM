@@ -1,28 +1,52 @@
 <?php
 session_start();
 
+// Debugging - mostrar errores
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Configuración simple
-$admin_user = "admin";
-$admin_pass = "praedium2025"; // Cambiar por una contraseña segura
+$admin_user = "Gjgarciam";
+$admin_pass = "GjGm8900Gg4510"; // Cambiar por una contraseña segura
 
-// Verificar login
-if ($_POST['login'] ?? false) {
-    if ($_POST['username'] === $admin_user && $_POST['password'] === $admin_pass) {
-        $_SESSION['admin_logged'] = true;
-    } else {
-        $error = "Usuario o contraseña incorrectos";
-    }
-}
+// Variables de debug (no mostrar hasta después del HTML)
+$debug_info = "";
+$error = "";
 
-// Logout
+// Logout primero (debe ir antes de cualquier output)
 if ($_GET['logout'] ?? false) {
     session_destroy();
     header('Location: admin.php');
     exit;
 }
 
+// Verificar login
+if (isset($_POST['login'])) {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+    
+    // Guardar debug info para mostrar después
+    $debug_info = "POST recibido: " . print_r($_POST, true);
+    $debug_info .= "\nComparando '$username' con '$admin_user' y '$password' con '$admin_pass'";
+    
+    if ($username === $admin_user && $password === $admin_pass) {
+        $_SESSION['admin_logged'] = true;
+        $debug_info .= "\nLogin exitoso, redirigiendo...";
+        header('Location: admin.php');
+        exit;
+    } else {
+        $error = "Usuario o contraseña incorrectos. Usuario recibido: '$username'";
+    }
+}
+
 // Verificar si está logueado
 $logged_in = $_SESSION['admin_logged'] ?? false;
+
+// Mensaje de éxito si se agregó una propiedad
+$success_message = "";
+if (isset($_GET['success']) && $_GET['success'] == '1') {
+    $success_message = "¡Propiedad agregada exitosamente!";
+}
 ?>
 
 <!DOCTYPE html>
@@ -69,9 +93,36 @@ $logged_in = $_SESSION['admin_logged'] ?? false;
             color: #ff4444;
             margin-top: 0.5rem;
         }
+        .success {
+            color: #00aa00;
+            background: #e8f5e8;
+            border: 1px solid #00aa00;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .property-admin-card {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
     </style>
 </head>
 <body>
+
+<?php 
+// Mostrar debug info si existe
+if ($debug_info) {
+    echo "<!-- DEBUG: $debug_info -->";
+}
+?>
 
 <?php if (!$logged_in): ?>
     <!-- Formulario de login -->
@@ -81,18 +132,19 @@ $logged_in = $_SESSION['admin_logged'] ?? false;
             <small style="font-size: 0.6em; color: #666;">PRAEDIUM</small>
         </h2>
         
-        <form method="POST" class="login-form">
+        <form method="POST" action="admin.php" class="login-form">
             <div class="form-group">
                 <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" value="Gjgarciam" required autocomplete="username">
             </div>
             
             <div class="form-group">
                 <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
             </div>
             
-            <button type="submit" name="login" class="submit-btn">Iniciar Sesión</button>
+            <input type="hidden" name="login" value="1">
+            <button type="submit" class="submit-btn">Iniciar Sesión</button>
             
             <?php if (isset($error)): ?>
                 <div class="error"><?= $error ?></div>
@@ -108,6 +160,10 @@ $logged_in = $_SESSION['admin_logged'] ?? false;
     </div>
 
     <div class="admin-container">
+        
+        <?php if ($success_message): ?>
+            <div class="success"><?= $success_message ?></div>
+        <?php endif; ?>
         
         <form id="propiedadForm" class="property-form" action="upload.php" method="POST" enctype="multipart/form-data">
             <h2 style="color: #005580; margin-bottom: 2rem;">Agregar Nueva Propiedad</h2>

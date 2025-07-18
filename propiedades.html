@@ -6,6 +6,7 @@
     <title>Propiedades - Praedium</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/search-compact.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
@@ -35,7 +36,7 @@
             <div class="search-form-inline">
                     <div class="search-field">
                         <label>Ubicación</label>
-                        <select id="filter-ubicacion">
+                        <select id="ubicacion">  <!-- Cambié de filter-ubicacion a ubicacion -->
                             <option value="">Seleccione una Ubicación</option>
                             <option value="monterrey">Monterrey</option>
                             <option value="san-pedro">San Pedro Garza García</option>
@@ -50,7 +51,7 @@
 
                     <div class="search-field">
                         <label>Tipo de Propiedad</label>
-                        <select id="filter-tipo">
+                        <select id="tipo">  <!-- Cambié de filter-tipo a tipo -->
                             <option value="">Seleccione un tipo</option>
                             <option value="casa">Casa</option>
                             <option value="departamento">Departamento</option>
@@ -64,16 +65,16 @@
 
                     <div class="search-field">
                         <label>Precio Min.</label>
-                        <input type="text" id="filter-precio-min" placeholder="Min $0">
+                        <input type="text" id="precioMin" placeholder="Min $0">  <!-- Cambié de filter-precio-min a precioMin -->
                     </div>
 
                     <div class="search-field">
                         <label>Precio Max.</label>
-                        <input type="text" id="filter-precio-max" placeholder="Max $0">
+                        <input type="text" id="precioMax" placeholder="Max $0">  <!-- Cambié de filter-precio-max a precioMax -->
                     </div>
 
                     <div class="search-field search-button-field">
-                        <button id="clear-filters" class="clear-btn">
+                        <button id="clearBtn" class="clear-btn">  <!-- Cambié de clear-filters a clearBtn -->
                             <i class="fas fa-times"></i> Limpiar
                         </button>
                     </div>
@@ -129,10 +130,11 @@
     <script src="js/app.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const priceInputs = document.querySelectorAll('#filter-precio-min, #filter-precio-max');
+            const priceInputs = document.querySelectorAll('#precioMin, #precioMax');
             priceInputs.forEach(input => {
                 input.addEventListener('input', function() {
-                    let value = this.value.replace(/[^\d]/g, '');                    if (value) {
+                    let value = this.value.replace(/[^\d]/g, '');
+                    if (value) {
                         value = parseInt(value).toLocaleString('es-MX');
                         this.value = '$' + value;
                     }
