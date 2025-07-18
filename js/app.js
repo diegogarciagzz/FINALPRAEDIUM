@@ -444,8 +444,7 @@ class PropertyManager {
         // Create modal overlay
         const modal = document.createElement('div');
         modal.id = "propertyModalOverlay";
-        modal.className = 'property-modal-overlay';
-        modal.innerHTML = `
+        modal.className = 'property-modal-overlay';        modal.innerHTML = `
             <div class="property-modal">
                 <button class="modal-close" onclick="propertyManager.closePropertyModal()">&times;</button>
                 
@@ -462,15 +461,6 @@ class PropertyManager {
                                 </div>
                             ` : ''}
                         </div>
-                        ${property.imagenes.length > 1 ? `
-                            <div class="gallery-thumbnails">
-                                ${property.imagenes.map((img, index) => `
-                                    <img src="${img}" alt="Foto ${index + 1}" 
-                                         class="thumbnail ${index === 0 ? 'active' : ''}" 
-                                         onclick="propertyManager.setActiveImage(${index})">
-                                `).join('')}
-                            </div>
-                        ` : ''}
                     </div>
 
                     <!-- Información de la propiedad -->
@@ -506,10 +496,22 @@ class PropertyManager {
                                     🚗 <span>Estacionamientos: ${property.estacionamientos}</span>
                                 </div>
                             ` : ''}
-                        </div>                        <div class="modal-description">
+                        </div>
+                        
+                        <div class="modal-description">
                             <h3>Descripción</h3>
                             <p>${property.descripcion}</p>
                         </div>
+                        
+                        ${property.imagenes.length > 1 ? `
+                            <div class="gallery-thumbnails">
+                                ${property.imagenes.map((img, index) => `
+                                    <img src="${img}" alt="Foto ${index + 1}" 
+                                         class="thumbnail ${index === 0 ? 'active' : ''}" 
+                                         onclick="propertyManager.setActiveImage(${index})">
+                                `).join('')}
+                            </div>
+                        ` : ''}
                     </div>
                 </div>
             </div>

@@ -1063,7 +1063,7 @@ html {
     position: absolute;
     bottom: .5rem;
     right: .5rem;
-    background: #0b71b9;
+    background: #005580;        /* Cambiado a azul oscuro de la página */
     color: #fff;
     font-size: .75rem;
     padding: .2rem .6rem;
@@ -1413,17 +1413,26 @@ html {
 .sortable-chosen {
     transform: scale(1.05);
 }
-/* ===== Buscador de propiedades ===== */
+/* ===== BARRA DE FILTROS COMPACTA Y DISCRETA ===== */
 .search-section {
-  padding: 3rem 0;            /* espacio arriba / abajo */
+  padding: 0.8rem 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-container {
-  background: #005580;        /* azul principal */
-  padding: 2rem;
-  border-radius: 4px;
+  background: white;
+  padding: 1.2rem;
+  border-radius: 8px;         /* Más redondeado */
   position: relative;         /* para posicionar la “pestaña” */
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,85,128,0.2); /* Sombra azul sutil */
+  max-width: 800px;           /* Reducido el ancho máximo */
+  width: 85%;                 /* Responsive */
+  padding: 1.5rem;            /* Aumentado el padding interno */
+  border-radius: 12px;        /* Más redondeado */
 }
 
 .search-title {
@@ -1441,67 +1450,115 @@ html {
 
 /* ——­ layout de los campos —— */
 .search-form-inline {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem 2rem;             /* fila x columna */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  align-items: end;
 }
 
 .search-field {
   display: flex;
   flex-direction: column;
-  min-width: 160px;           /* evita que se encojan demasiado en desktop */
+  position: relative;
 }
 
 .search-field label {
-  color: #fff;
-  font-size: .85rem;
-  margin-bottom: .25rem;
+  color: #005580;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
 .search-field select,
 .search-field input {
-  padding: .5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: #f8f9fa;
+  color: #333;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.search-field select:focus,
+.search-field input:focus {
+  border-color: #005580;
+  background: white;
+  box-shadow: 0 0 0 2px rgba(0, 85, 128, 0.1);
 }
 
 .search-field input::placeholder {
-  color: #999;
+  color: #6c757d;
+  font-style: italic;
 }
 
-/* Botón de buscar */
-.search-btn {
-  background: #7e8a95;        /* gris como en la imagen */
-  color: #fff;
+.search-button-field {
+  grid-column: span 2;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* Botones de buscar y limpiar */
+.search-btn, .clear-btn {
+  padding: 0.7rem 1.8rem;
   border: none;
-  padding: .75rem 2rem;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
   cursor: pointer;
-  transition: background .3s ease;
+  transition: all 0.2s ease;
+}
+
+.search-btn {
+  background: #005580;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 85, 128, 0.2);
 }
 
 .search-btn:hover {
-  background: #9aa5af;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 85, 128, 0.4);
 }
 
-.search-button-field {        /* alinea el botón al fondo de la línea */
-  display: flex;
-  align-items: flex-end;
+.clear-btn {
+  background: transparent;
+  color: #6c757d;
+  border: 2px solid #e9ecef;
 }
 
-/* ——­ Responsivo —— */
+.clear-btn:hover {
+  background: #f8f9fa;
+  border-color: #005580;
+  color: #005580;
+  transform: translateY(-2px);
+}
+
+/* Responsive para móviles */
 @media (max-width: 768px) {
+  .search-container {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
   .search-form-inline {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .search-button-field {
+    grid-column: span 1;
     flex-direction: column;
   }
-
-  .search-field {
-    width: 100%;
-  }
-
-  .search-button-field {
-    align-items: stretch;     /* botón ancho completo en móvil */
+  
+  .search-btn, .clear-btn {
+    padding: 0.8rem 2rem;
   }
 }
 
@@ -1581,7 +1638,7 @@ html {
   position: absolute;
   bottom: .5rem;
   right: .5rem;
-  background: #0b71b9;
+  background: #005580;        /* Cambiado a azul oscuro de la página */
   color: #fff;
   font-size: .75rem;
   padding: .2rem .6rem;
@@ -1639,7 +1696,7 @@ html {
 
 .property-details i {
   margin-right: .3rem;
-  color: #0b71b9;
+  color: #005580;        /* Cambiado a azul oscuro corporativo */
 }
 /* Modal styles moved to unified section */
 
@@ -1873,7 +1930,7 @@ html {
 }
 
 .property-price-bottom .operation-badge {
-    background: #3498db;
+    background: #005580;        /* Cambiado a azul oscuro corporativo */
     color: white;
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
@@ -2161,8 +2218,6 @@ html {
     font-size: 1rem;
 }
 
-/* Estilos de botones de acción eliminados */
-
 /* === CONTADOR DE RESULTADOS Y MENSAJES === */
 .results-count {
     text-align: center;
@@ -2237,4 +2292,655 @@ html {
     .modal-features {
         grid-template-columns: 1fr;
     }
+}
+
+/* ==========================================
+   ESTILOS PARA LA SECCIÓN DE EQUIPO
+   ========================================== */
+
+/* Contenedor principal de la sección de equipo */
+.equipo-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+}
+
+/* Descripción del equipo */
+.equipo-descripcion {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    border-left: 4px solid #005580;
+}
+
+.equipo-descripcion strong {
+    color: #005580;
+    font-weight: 600;
+}
+
+/* Grid del equipo */
+.equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+/* Tarjetas de miembros del equipo */
+.miembro-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 780px;
+    display: flex;
+    flex-direction: column;
+}
+
+.miembro-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0,85,128,0.15);
+}
+
+/* Imagen del miembro */
+.miembro-imagen {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    object-position: center 20%;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.miembro-card:hover .miembro-imagen {
+    transform: scale(1.05);
+}
+
+/* Información del miembro */
+.miembro-info {
+    padding: 2rem;
+    background: linear-gradient(135deg, #005580 0%, #007bb5 100%);
+    color: white;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.miembro-info::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 10px solid #005580;
+}
+
+/* Nombre del miembro */
+.miembro-nombre {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: white;
+}
+
+/* Puesto del miembro */
+.miembro-puesto {
+    font-size: 1rem;
+    margin: 0 0 1.5rem 0;
+    opacity: 0.9;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* Sección de credenciales */
+.miembro-credenciales {
+    flex-grow: 1;
+}
+
+.miembro-credenciales h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: white;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 0.5rem;
+}
+
+.miembro-credenciales ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.miembro-credenciales li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.95);
+}
+
+.miembro-credenciales li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ffdd57;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Efecto decorativo */
+.miembro-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #005580, #007bb5, #005580);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.miembro-card:hover::before {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .equipo-section {
+        padding: 2rem 1rem;
+    }
+    
+    .equipo-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .miembro-card {
+        min-height: 750px;
+    }
+    
+    .miembro-imagen {
+        height: 320px;
+    }
+    
+    .equipo-descripcion {
+        font-size: 1.1rem;
+        padding: 1.5rem;
+    }
+    
+    .miembro-nombre {
+        font-size: 1.2rem;
+    }
+    
+    .miembro-info {
+        padding: 1.5rem;
+    }
+    
+    .miembro-credenciales h4 {
+        font-size: 1rem;
+    }
+    
+    .miembro-credenciales li {
+        font-size: 0.85rem;
+        margin-bottom: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .equipo-descripcion {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+    
+    .miembro-info {
+        padding: 1rem;
+    }
+    
+    .miembro-nombre {
+        font-size: 1.1rem;
+    }
+    
+    .miembro-puesto {
+        font-size: 0.9rem;
+    }
+    
+    .miembro-credenciales h4 {
+        font-size: 0.95rem;
+    }
+    
+    .miembro-credenciales li {
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+        padding-left: 1.2rem;
+    }
+    
+    .miembro-card {
+        min-height: 680px;
+    }
+    
+    .miembro-imagen {
+        height: 300px;
+    }
+}
+
+/* ==========================================
+   ESTILOS PARA LA PÁGINA DE CONTACTO
+   ========================================== */
+
+/* Contenedor principal de contacto */
+.contacto-section {
+    padding: 4rem 2rem;
+    background-color: #f8f9fa;
+}
+
+.contacto-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Encabezado de la sección */
+.contacto-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.contacto-title {
+    font-size: 3rem;
+    color: #005580;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.contacto-subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Contenido principal */
+.contacto-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Información de contacto */
+.contacto-info {
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-left: 4px solid #005580;
+}
+
+.contacto-info h2 {
+    color: #005580;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateX(5px);
+}
+
+.info-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    width: 50px;
+    text-align: center;
+}
+
+.info-details h3 {
+    color: #005580;
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.info-details p {
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Horarios de atención */
+.horarios-atencion {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #005580;
+}
+
+.horarios-atencion h3 {
+    color: #005580;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.horario-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.horario-item:last-child {
+    border-bottom: none;
+}
+
+.horario-item span:first-child {
+    font-weight: 600;
+    color: #555;
+}
+
+.horario-item span:last-child {
+    color: #005580;
+    font-weight: 500;
+}
+
+/* Formulario de contacto */
+.contacto-form {
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-left: 4px solid #005580;
+}
+
+.contacto-form h2 {
+    color: #005580;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #005580;
+    box-shadow: 0 0 0 3px rgba(0,85,128,0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+/* Checkbox personalizado */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.checkbox-group a {
+    color: #005580;
+    text-decoration: underline;
+}
+
+.checkbox-group a:hover {
+    color: #007bb5;
+}
+
+/* Botón de envío */
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #005580 0%, #007bb5 100%);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,85,128,0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+}
+
+/* ==========================================
+   ESTILOS ADICIONALES PARA ADMIN Y PROPIEDADES
+   ========================================== */
+
+/* Estilos para tarjetas de propiedades en admin */
+.property-admin-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    border-left: 4px solid #005580;
+}
+
+.property-admin-card h3 {
+    color: #005580;
+    margin: 0 0 0.5rem 0;
+}
+
+.property-admin-card p {
+    margin: 0.25rem 0;
+    color: #555;
+}
+
+/* Estilos para página de propiedades sin propiedades */
+.no-properties {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #555;
+}
+
+.properties-stats {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.properties-stats h2 {
+    color: #005580;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos para filtros de búsqueda */
+.search-section {
+    background: linear-gradient(135deg, #005580 0%, #007bb5 100%);
+    padding: 3rem 0;
+    color: white;
+}
+
+.search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.search-form-inline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    align-items: end;
+    background: rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.search-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-field label {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.search-field select,
+.search-field input {
+    padding: 12px 16px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+.search-field select:focus,
+.search-field input:focus {
+    outline: none;
+    border-color: rgba(255,255,255,0.8);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.2);
+}
+
+.search-btn, .clear-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.search-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.search-btn:hover {
+    background: white;
+    color: #005580;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.clear-btn {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.clear-btn:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+/* Contenedor general */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Sección de propiedades */
+.properties-section {
+    padding: 3rem 0;
+    background: #f8f9fa;
+}
+
+.properties-section .container {
+    padding: 0 2rem;
 }
