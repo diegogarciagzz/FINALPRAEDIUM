@@ -6,12 +6,40 @@
     <title>Nosotros - Praedium</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+        <style>
+            .gray-icon {
+                color: #888;
+                filter: grayscale(100%);
+                font-size: 1.2em;
+                vertical-align: middle;
+            }
+                .praedium-digital-btn {
+                    position: absolute;
+                    top: 20px;
+                    right: 30px;
+                    background: #005580;
+                    color: #fff;
+                    padding: 12px 28px;
+                    border-radius: 30px;
+                    font-weight: bold;
+                    font-size: 1.1em;
+                    text-decoration: none;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                    transition: background 0.2s, box-shadow 0.2s;
+                    z-index: 100;
+                }
+                .praedium-digital-btn:hover {
+                    background: #0074b7;
+                    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+                }
+        </style>
 </head>
 <body>
     <header class="header">
         <div class="logo">
             <img src="images/Praedium-FirmaInmobiliaria.jpg" alt="Praedium">
         </div>
+            <a href="admin.php" class="praedium-digital-btn">PRAEDIUM DIGITAL</a>
     </header>
      <nav class="nav">
     <ul>
@@ -120,11 +148,11 @@
         <div class="footer-section">
             <h3>Información de contacto</h3>
             <ul class="contact-info">
-                <li>📞 (81) 2082 9357</li>
-                <li>💬 (81) 1272 2672</li>
-                <li>✉️ contacto@praedium.mx</li>
-                <li>📍 Av. Gómez Morín 1020, Valle de Chipinque, San Pedro Garza García N.L. C.P 66250</li>
-            </ul>
+                <li><span class="gray-icon">📞</span> (81) 2082 9357</li>
+                        <li><span class="gray-icon">💬</span> (81) 1272 2672</li>
+                    <li>✉️ contacto@praedium.mx</li>
+                        <li><span class="gray-icon">📍</span> Av. Gómez Morín 1020, Valle de Chipinque, San Pedro Garza García N.L. C.P 66250</li>
+                </ul>
         </div>
         
         <!-- Sección del menú -->
