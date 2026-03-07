@@ -82,14 +82,14 @@ function createPropertyCard(property) {
                 <h3 class="property-title">${property.nombre}</h3>
                 <p class="property-id"><strong>ID:</strong> ${property.identificador || property.id}</p>
                 <p class="property-location">
-                    📍 ${property.ubicacion}
+                    ${property.ubicacion}
                 </p>
 
                 <div class="property-details">
-                    <span><i>🏠</i> ${property.superficie} m²</span>
-                    ${property.habitaciones > 0 ? `<span><i>🛏️</i> ${property.habitaciones}</span>` : ''}
-                    ${property.banos > 0 ? `<span><i>🚿</i> ${property.banos}</span>` : ''}
-                    ${property.estacionamientos > 0 ? `<span><i>🚗</i> ${property.estacionamientos}</span>` : ''}
+                    <span>${property.superficie} m²</span>
+                    ${property.habitaciones > 0 ? `<span>${property.habitaciones} hab.</span>` : ''}
+                    ${property.banos > 0 ? `<span>${property.banos} baños</span>` : ''}
+                    ${property.estacionamientos > 0 ? `<span>${property.estacionamientos} est.</span>` : ''}
                 </div>
 
                 ${property.asesor ? `
@@ -368,7 +368,7 @@ function openModal(propertyId) {
                         color: #666;
                         font-size: 1.1rem;
                     ">
-                        📍 <span>${property.ubicacion}</span>
+                        <span>${property.ubicacion}</span>
                     </div>
 
                     <div class="modal-features" style="
@@ -384,7 +384,7 @@ function openModal(propertyId) {
                             align-items: center;
                             gap: 10px;
                         ">
-                            🏠 <span><strong>Superficie:</strong> ${property.superficie} m²</span>
+                            <span><strong>Superficie:</strong> ${property.superficie} m²</span>
                         </div>
                         ${property.habitaciones > 0 ? `
                             <div class="feature" style="
@@ -392,7 +392,7 @@ function openModal(propertyId) {
                                 align-items: center;
                                 gap: 10px;
                             ">
-                                🛏️ <span><strong>Habitaciones:</strong> ${property.habitaciones}</span>
+                                <span><strong>Habitaciones:</strong> ${property.habitaciones}</span>
                             </div>
                         ` : ''}
                         ${property.banos > 0 ? `
@@ -401,7 +401,7 @@ function openModal(propertyId) {
                                 align-items: center;
                                 gap: 10px;
                             ">
-                                🚿 <span><strong>Baños:</strong> ${property.banos}</span>
+                                <span><strong>Baños:</strong> ${property.banos}</span>
                             </div>
                         ` : ''}
                         ${property.estacionamientos > 0 ? `
@@ -410,7 +410,7 @@ function openModal(propertyId) {
                                 align-items: center;
                                 gap: 10px;
                             ">
-                                🚗 <span><strong>Estacionamientos:</strong> ${property.estacionamientos}</span>
+                                <span><strong>Estacionamientos:</strong> ${property.estacionamientos}</span>
                             </div>
                         ` : ''}
                     </div>

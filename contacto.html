@@ -6,43 +6,20 @@
     <title>Contacto - PRAEDIUM</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-        <style>
-            .gray-icon {
-                color: #888;
-                filter: grayscale(100%);
-                font-size: 1.2em;
-                vertical-align: middle;
-            }
-                .praedium-digital-btn {
-                    position: absolute;
-                    top: 20px;
-                    right: 30px;
-                    background: #005580;
-                    color: #fff;
-                    padding: 12px 28px;
-                    border-radius: 30px;
-                    font-weight: bold;
-                    font-size: 1.1em;
-                    text-decoration: none;
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-                    transition: background 0.2s, box-shadow 0.2s;
-                    z-index: 100;
-                }
-                .praedium-digital-btn:hover {
-                    background: #0074b7;
-                    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-                }
-        </style>
+
 </head>
 <body>
-    <header class="header">
+    <header class="header" style="position: relative;">
         <div class="logo">
             <img src="images/Praedium-FirmaInmobiliaria.jpg" alt="Praedium">
         </div>
-            <a href="admin.php" class="praedium-digital-btn">PRAEDIUM DIGITAL</a>
+        <a href="admin.php" class="praedium-digital-btn">PRAEDIUM DIGITAL</a>
     </header>
 
     <nav class="nav">
+        <button class="menu-toggle" onclick="this.classList.toggle('active'); document.querySelector('.nav ul').classList.toggle('active');">
+            <span></span><span></span><span></span>
+        </button>
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
@@ -74,7 +51,6 @@
                     <h2>Información de contacto</h2>
                     
                     <div class="info-item">
-                        <div class="info-icon">📞</div>
                         <div class="info-details">
                             <h3>Teléfono</h3>
                             <p>(81) 2082 9357</p>
@@ -82,7 +58,6 @@
                     </div>
 
                     <div class="info-item">
-                        <div class="info-icon">💬</div>
                         <div class="info-details">
                             <h3>WhatsApp</h3>
                             <p>(81) 1272 2672</p>
@@ -90,7 +65,6 @@
                     </div>
 
                     <div class="info-item">
-                        <div class="info-icon">✉️</div>
                         <div class="info-details">
                             <h3>Email</h3>
                             <p>contacto@praedium.mx</p>
@@ -98,7 +72,6 @@
                     </div>
 
                     <div class="info-item">
-                        <div class="info-icon">📍</div>
                         <div class="info-details">
                             <h3>Dirección</h3>
                             <p>Av. Gómez Morín 1020<br>
@@ -177,10 +150,10 @@
             <div class="footer-section">
                 <h3>Información de contacto</h3>
                 <ul class="contact-info">
-                        <li><span class="gray-icon">📞</span> (81) 2082 9357</li>
-                        <li><span class="gray-icon">💬</span> (81) 1272 2672</li>
-                    <li>✉️ contacto@praedium.mx</li>
-                        <li><span class="gray-icon">📍</span> Av. Gómez Morín 1020, Valle de Chipinque, San Pedro Garza García N.L. C.P 66250</li>
+                    <li><span class="contact-label">Tel.</span> (81) 2082 9357</li>
+                    <li><span class="contact-label">WhatsApp</span> (81) 1272 2672</li>
+                    <li><span class="contact-label">Email</span> contacto@praedium.mx</li>
+                    <li><span class="contact-label">Dirección</span> Av. Gómez Morín 1020, Valle de Chipinque, San Pedro Garza García N.L. C.P 66250</li>
                 </ul>
             </div>
             

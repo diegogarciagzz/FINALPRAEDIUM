@@ -134,6 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado - Admin PRAEDIUM</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <style>
         .result-container {
             max-width: 600px;
@@ -175,12 +176,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2>Resultado de la operación</h2>
     
     <?php if (isset($success)): ?>
-        <div class="success">✅ <?= $success ?></div>
+        <div class="success"><?= $success ?></div>
         <p>La propiedad ha sido agregada y ya está visible en la página de propiedades.</p>
     <?php endif; ?>
     
     <?php if (isset($error)): ?>
-        <div class="error">❌ <?= $error ?></div>
+        <div class="error"><?= $error ?></div>
         <p>Por favor, revisa los datos e intenta nuevamente.</p>
     <?php endif; ?>
     

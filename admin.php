@@ -80,6 +80,7 @@ if (isset($_GET['success']) && $_GET['success'] == '1') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - PRAEDIUM</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <style>
         .login-container {
             max-width: 400px;
@@ -256,6 +257,20 @@ if ($debug_info) {
                     <option value="">Seleccionar...</option>
                     <option value="venta">Venta</option>
                     <option value="renta">Renta</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="identificador">Identificador de la propiedad:</label>
+                <input type="text" id="identificador" name="identificador" required placeholder="Ej: PRAED-001">
+            </div>
+
+            <div class="form-group">
+                <label for="asesor">Asesor responsable:</label>
+                <select id="asesor" name="asesor" required>
+                    <option value="">Seleccionar asesor...</option>
+                    <option value="gerardo">Gerardo García</option>
+                    <option value="susana">Susana Maldonado</option>
                 </select>
             </div>
 

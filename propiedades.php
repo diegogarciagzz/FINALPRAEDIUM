@@ -15,18 +15,23 @@ if (file_exists('data/propiedades.json')) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propiedades - Praedium</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header" style="position: relative;">
         <div class="logo">
             <img src="images/Praedium-FirmaInmobiliaria.jpg" alt="Praedium">
         </div>
+        <a href="admin.php" class="praedium-digital-btn">PRAEDIUM DIGITAL</a>
     </header>
 
     <!-- Navegación -->
     <nav class="nav">
+        <button class="menu-toggle" onclick="this.classList.toggle('active'); document.querySelector('.nav ul').classList.toggle('active');">
+            <span></span><span></span><span></span>
+        </button>
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="nosotros.html">Nosotros</a></li>
@@ -247,10 +252,10 @@ if (file_exists('data/propiedades.json')) {
             <div class="footer-section">
                 <h3>Información de contacto</h3>
                 <ul class="contact-info">
-                    <li>📞 (81) 2082 9357</li>
-                    <li>💬 (81) 1272 2672</li>
-                    <li>✉️ contacto@praedium.mx</li>
-                    <li>📍 Av. Gómez Morín 1020, Valle de Chipinque, San Pedro Garza García N.L. C.P 66250</li>
+                    <li><span class="contact-label">Tel.</span> (81) 2082 9357</li>
+                    <li><span class="contact-label">WhatsApp</span> (81) 1272 2672</li>
+                    <li><span class="contact-label">Email</span> contacto@praedium.mx</li>
+                    <li><span class="contact-label">Dirección</span> Av. Gómez Morín 1020, Valle de Chipinque, San Pedro Garza García N.L. C.P 66250</li>
                 </ul>
             </div>
             <div class="footer-section">

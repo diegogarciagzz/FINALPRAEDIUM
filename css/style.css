@@ -157,7 +157,7 @@ body {
 }
 
 .logo {
-    max-width: 150px; /* Tamaño del logo */
+    max-width: 200px; /* Tamaño del logo */
     padding: 0;
 }
 
@@ -220,7 +220,7 @@ body {
 .hero {
     position: relative;
     width: 100vw; /* Asegura que ocupe todo el ancho */
-    height: 400vh; /* Ajusta la altura según tus necesidades */
+    height: 100vh; /* Ajusta la altura según tus necesidades */
     overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
 }
 
@@ -423,7 +423,7 @@ body {
 }
 
 .logo {
-    max-width: 100px; /* Ajusta este valor según el tamaño que desees */
+    max-width: 200px; /* Logo más grande en desktop */
     padding: 0.5rem 0;
 }
 
@@ -1124,6 +1124,12 @@ html {
     gap: .2rem;
     font-weight: 500;
     font-size: .75rem;
+    padding: 0.2rem 0.5rem;
+    border-right: 1px solid #ddd;
+}
+
+.property-details span:last-child {
+    border-right: none;
 }
 
 .property-details i {
@@ -2608,10 +2614,11 @@ html {
     display: flex;
     align-items: flex-start;
     margin-bottom: 2rem;
-    padding: 1rem;
+    padding: 1rem 1rem 1rem 1.5rem;
     background: #f8f9fa;
     border-radius: 8px;
     transition: transform 0.3s ease;
+    border-left: 3px solid #005580;
 }
 
 .info-item:hover {
