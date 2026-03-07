@@ -30,8 +30,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $estacionamientos = (int)($_POST['estacionamientos'] ?? 0);
         $descripcion = trim($_POST['descripcion']);
         $operacion = $_POST['operacion'];
+        $identificador = trim($_POST['identificador']);
+        $asesor = $_POST['asesor'];
+        $asesor_nombre = '';
+        $asesor_email = '';
+        $asesor_telefono = '';
 
-        if (empty($nombre) || empty($tipo) || empty($ubicacion) || empty($descripcion)) {
+        if ($asesor === 'gerardo') {
+            $asesor_nombre = 'Gerardo García';
+            $asesor_email = 'gerardo@praedium.com.mx';
+            $asesor_telefono = '(81) 2082 9357';
+        } elseif ($asesor === 'susana') {
+            $asesor_nombre = 'Susana Maldonado';
+            $asesor_email = 'susana@praedium.com.mx';
+            $asesor_telefono = '(81) 1272 2672';
+        }
+
+        if (empty($nombre) || empty($tipo) || empty($ubicacion) || empty($descripcion) || empty($identificador) || empty($asesor)) {
             throw new Exception("Todos los campos son obligatorios");
         }
 
@@ -66,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Crear objeto propiedad
         $propiedad = [
             'id' => time(), // ID único basado en timestamp
+            'identificador' => $identificador,
             'nombre' => $nombre,
             'tipo' => $tipo,
             'precio' => $precio,
@@ -77,6 +93,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'descripcion' => $descripcion,
             'operacion' => $operacion,
             'imagenes' => $imagenes,
+            'asesor' => [
+                'clave' => $asesor,
+                'nombre' => $asesor_nombre,
+                'email' => $asesor_email,
+                'telefono' => $asesor_telefono
+            ],
             'fecha_creacion' => date('Y-m-d H:i:s')
         ];
 

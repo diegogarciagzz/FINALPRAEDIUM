@@ -6,8 +6,23 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Configuración simple
-$admin_user = "Gjgarciam";
-$admin_pass = "GjGm8900Gg4510"; // Cambiar por una contraseña segura
+// Credenciales de los dos admins
+$admins = [
+    'gerardo' => [
+        'username' => 'Gjgarciam',
+        'password' => 'GjGm8900Gg4510',
+        'nombre' => 'Gerardo García',
+        'email' => 'gerardo@praedium.com.mx',
+        'telefono' => '(81) 2082 9357'
+    ],
+    'susana' => [
+        'username' => 'Smaldonado',
+        'password' => 'SmSg8900Sm4510',
+        'nombre' => 'Susana Maldonado',
+        'email' => 'susana@praedium.com.mx',
+        'telefono' => '(81) 1272 2672'
+    ]
+];
 
 // Variables de debug (no mostrar hasta después del HTML)
 $debug_info = "";
@@ -24,23 +39,32 @@ if ($_GET['logout'] ?? false) {
 if (isset($_POST['login'])) {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
-    
-    // Guardar debug info para mostrar después
     $debug_info = "POST recibido: " . print_r($_POST, true);
-    $debug_info .= "\nComparando '$username' con '$admin_user' y '$password' con '$admin_pass'";
-    
-    if ($username === $admin_user && $password === $admin_pass) {
-        $_SESSION['admin_logged'] = true;
-        $debug_info .= "\nLogin exitoso, redirigiendo...";
-        header('Location: admin.php');
-        exit;
-    } else {
+    $found = false;
+    foreach ($admins as $key => $admin) {
+        if ($username === $admin['username'] && $password === $admin['password']) {
+            $_SESSION['admin_logged'] = true;
+            $_SESSION['admin_key'] = $key;
+            $_SESSION['admin_nombre'] = $admin['nombre'];
+            $_SESSION['admin_email'] = $admin['email'];
+            $_SESSION['admin_telefono'] = $admin['telefono'];
+            $debug_info .= "\nLogin exitoso ($key), redirigiendo...";
+            $found = true;
+            header('Location: admin.php');
+            exit;
+        }
+    }
+    if (!$found) {
         $error = "Usuario o contraseña incorrectos. Usuario recibido: '$username'";
     }
 }
 
 // Verificar si está logueado
 $logged_in = $_SESSION['admin_logged'] ?? false;
+$admin_key = $_SESSION['admin_key'] ?? null;
+$admin_nombre = $_SESSION['admin_nombre'] ?? '';
+$admin_email = $_SESSION['admin_email'] ?? '';
+$admin_telefono = $_SESSION['admin_telefono'] ?? '';
 
 // Mensaje de éxito si se agregó una propiedad
 $success_message = "";
@@ -249,9 +273,18 @@ if ($debug_info) {
                         foreach ($propiedades as $index => $propiedad) {
                             echo "<div class='property-admin-card'>";
                             echo "<h3>{$propiedad['nombre']}</h3>";
+                            echo "<p><strong>Identificador:</strong> {$propiedad['identificador']}</p>";
                             echo "<p><strong>Tipo:</strong> {$propiedad['tipo']}</p>";
                             echo "<p><strong>Precio:</strong> $" . number_format($propiedad['precio']) . " MXN</p>";
                             echo "<p><strong>Ubicación:</strong> {$propiedad['ubicacion']}</p>";
+                            if (isset($propiedad['asesor'])) {
+                                echo "<div style='margin-top:1em; background:#eef; padding:0.5em; border-radius:6px;'>";
+                                echo "<strong>Asesor responsable:</strong><br>";
+                                echo "Nombre: " . htmlspecialchars($propiedad['asesor']['nombre']) . "<br>";
+                                echo "Email: <a href='mailto:" . htmlspecialchars($propiedad['asesor']['email']) . "'>" . htmlspecialchars($propiedad['asesor']['email']) . "</a><br>";
+                                echo "Teléfono: " . htmlspecialchars($propiedad['asesor']['telefono']) . "<br>";
+                                echo "</div>";
+                            }
                             echo "<a href='delete.php?id={$index}' onclick='return confirm(\"¿Eliminar esta propiedad?\")' style='color: #ff4444;'>Eliminar</a>";
                             echo "</div>";
                         }

@@ -80,7 +80,7 @@ function createPropertyCard(property) {
             <!-- Cuerpo de la tarjeta -->
             <div class="property-body">
                 <h3 class="property-title">${property.nombre}</h3>
-                
+                <p class="property-id"><strong>ID:</strong> ${property.identificador || property.id}</p>
                 <p class="property-location">
                     📍 ${property.ubicacion}
                 </p>
@@ -91,8 +91,16 @@ function createPropertyCard(property) {
                     ${property.banos > 0 ? `<span><i>🚿</i> ${property.banos}</span>` : ''}
                     ${property.estacionamientos > 0 ? `<span><i>🚗</i> ${property.estacionamientos}</span>` : ''}
                 </div>
+
+                ${property.asesor ? `
+                <div class="property-asesor" style="margin-top:1em; background:#eef; padding:0.5em; border-radius:6px;">
+                    <strong>Asesor responsable:</strong><br>
+                    Nombre: ${property.asesor.nombre}<br>
+                    Email: <a href="mailto:${property.asesor.email}">${property.asesor.email}</a><br>
+                    Teléfono: ${property.asesor.telefono}<br>
+                </div>
+                ` : ''}
             </div>
-            
             <!-- Precio fuera de la imagen -->
             <div class="property-price-bottom">
                 <span class="price">$${formatPrice(property.precio).replace('$', '')} MXN</span>
