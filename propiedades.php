@@ -38,6 +38,7 @@ if (file_exists('data/propiedades.json')) {
             <li><a href="servicios.html">Servicios</a></li>
             <li><a href="propiedades.php" class="active">Propiedades</a></li>
             <li><a href="equipo.html">Equipo</a></li>
+            <li><a href="interes.html">Interés</a></li>
             <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>

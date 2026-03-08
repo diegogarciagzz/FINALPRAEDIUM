@@ -149,15 +149,16 @@ body {
 /* Header y Logo */
 .header {
     display: flex;
-    justify-content: flex-start; /* Logo a la izquierda */
+    justify-content: flex-start;
     align-items: center;
-    padding: 0.5rem 2rem;
+    padding: 0.8rem 2rem;
     background: white;
-    height: 80px; /* Altura fija para el header */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
 }
 
 .logo {
-    max-width: 150px; /* Tamaño del logo */
+    max-width: 80px;
     padding: 0;
 }
 
@@ -321,6 +322,21 @@ body {
 
 }
 
+.footer-social {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social:hover {
+    color: #005580;
+}
+
 .footer-menu a {
     color: white;
     text-decoration: none;
@@ -409,101 +425,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-body {
-    font-family: Arial, sans-serif;
-}
-
-.header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 1.2rem 3rem;
-    background: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    min-height: 80px;
-}
-
-.logo {
-    max-width: 150px;
-    padding: 0.5rem 0;
-}
-
-.logo img {
-    width: 100%;
-    height: auto; /* Cambiado de height fijo a auto para mantener la proporción */
-    object-fit: contain; /* Asegura que la imagen se ajuste correctamente */
-    display: block; /* Elimina espacio extra debajo de la imagen */
-}
-
-
-/* Navegación */
-.nav {
-    background: #444;
-    padding: 1rem 2rem;
-}
-
-.nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    justify-content: flex-start;
-}
-
-.nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
-.nav a:hover::after {
-    width: 100%;
-}
-
-/* Hero Section */
-.hero {
-    height: 80vh;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-        url('C:\Users\Dell\Documents\Borrador\Fotos e íconos\1 nosotros banner a.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.hero-text {
-    color: white;
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-/* Botones flotantes */
-.float-button {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-}
-
-.whatsapp {
-    background-color: #25d366;
-    left: 40px;
-}
-
-.contact {
-    background-color: #0088cc;
-    right: 40px;
-}
+/* (duplicados eliminados - estilos header/nav/hero ya definidos arriba) */
 .servicios {
     max-width: 1200px;
     margin: 0 auto;
@@ -1024,11 +946,12 @@ html {
 
 .properties-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 350px));
     gap: 1.5rem;
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    justify-content: center;
 }
 
 .property-card {
@@ -1592,126 +1515,7 @@ html {
     }
 }
 
-/* ===== Grilla de propiedades ===== */
-.properties-grid {
-   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  justify-content: center;
-}
-
-/* ===== Tarjeta de propiedad cuadrada ===== */
-.property-card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: 0.3s;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  max-width: 300px;
-  aspect-ratio: 1 / 1;
-}
-
-.property-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
-}
-
-/* — Imagen — */
-.img-wrapper {
-  position: relative;
-  width: 100%;
-  height: 50%; /* Ocupa la mitad superior */
-}
-
-.property-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.property-price {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, .6);
-  color: #fff;
-  font-weight: 700;
-  padding: .5rem 1rem;
-  font-size: 1.1rem;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  z-index: 2;
-}
-
-.badge {
-  position: absolute;
-  bottom: .5rem;
-  right: .5rem;
-  background: #005580;        /* Cambiado a azul oscuro de la página */
-  color: #fff;
-  font-size: .75rem;
-  padding: .2rem .6rem;
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-weight: 600;
-  z-index: 3;
-}
-
-.badge.renta {
-  background: #28a745;
-}
-
-/* — Cuerpo — */
-.property-body {
-  padding: 1rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.property-title {
-  font-weight: 600;
-  color: #005580;
-  font-size: 1.1rem;
-  margin-bottom: 0.4rem;
-}
-
-.property-location {
-  font-size: .85rem;
-  color: #666;
-  display: flex;
-  align-items: center;
-  gap: .3rem;
-  margin: 0;
-}
-
-.property-details {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  font-size: .8rem;
-  color: #555;
-  padding-top: .5rem;
-  border-top: 1px solid #eee;
-  margin-top: auto;
-}
-
-.property-details span {
-  display: flex;
-  align-items: center;
-  gap: .3rem;
-}
-
-.property-details i {
-  margin-right: .3rem;
-  color: #005580;        /* Cambiado a azul oscuro corporativo */
-}
+/* ===== Grilla de propiedades (estilos finales) ===== */
 /* Modal styles moved to unified section */
 
 .close-modal {
@@ -1936,6 +1740,7 @@ html {
     align-items: center;
     font-weight: 700;
     margin-top: auto;
+    border-radius: 0 0 10px 10px;
 }
 
 .property-price-bottom .price {
@@ -2947,4 +2752,120 @@ html {
 
 .properties-section .container {
     padding: 0 2rem;
+}
+
+/* ==========================================
+   FOOTER MENU GRID (2 columnas)
+   ========================================== */
+.footer-menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem 2rem;
+}
+
+/* ==========================================
+   PÁGINA DE INTERÉS
+   ========================================== */
+.interes-section {
+    padding: 4rem 2rem;
+    background: #f8f9fa;
+}
+
+.interes-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.interes-title {
+    color: #005580;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.interes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.interes-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
+}
+
+.interes-item:hover {
+    transform: translateX(5px);
+}
+
+.interes-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: #005580;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
+.interes-content h3 {
+    color: #005580;
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.interes-content p {
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .interes-section {
+        padding: 2rem 1rem;
+    }
+
+    .interes-title {
+        font-size: 1.5rem;
+    }
+
+    .interes-item {
+        padding: 1.2rem 1rem;
+        gap: 1rem;
+    }
+
+    .interes-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .interes-content h3 {
+        font-size: 1rem;
+    }
+
+    .interes-content p {
+        font-size: 0.9rem;
+    }
+
+    .footer-menu-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.3rem 1.5rem;
+        justify-items: center;
+    }
 }
