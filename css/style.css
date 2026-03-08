@@ -415,11 +415,12 @@ body {
 
 .header {
     display: flex;
-    justify-content: flex-start; /* Cambiado de space-between a flex-start */
+    justify-content: flex-start;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1.2rem 3rem;
     background: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Añadido para dar un efecto sutil de elevación */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    min-height: 80px;
 }
 
 .logo {
@@ -1023,19 +1024,17 @@ html {
 
 .properties-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
     padding: 2rem;
-    margin: 0 4rem;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 .property-card {
     background: #fff;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
     overflow: hidden;
     transition: .3s;
     cursor: pointer;
@@ -1043,7 +1042,6 @@ html {
     flex-direction: column;
     position: relative;
     height: auto;
-    min-height: 420px;
 }
 
 .property-card:hover {
@@ -1052,11 +1050,21 @@ html {
 }
 
 /* — Imagen — */
+.property-image-container {
+    width: 100%;
+    overflow: hidden;
+}
+
 .property-img {
     width: 100%;
-    height: 160px;
+    height: 200px;
     object-fit: cover;
-    position: relative;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.property-card:hover .property-img {
+    transform: scale(1.03);
 }
 
 .badge {
@@ -1089,7 +1097,7 @@ html {
 
 .property-title {
     font-weight: 600;
-    color: #333;
+    color: #005580;
     font-size: 1.1rem;
     line-height: 1.3;
 }

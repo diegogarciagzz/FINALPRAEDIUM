@@ -91,15 +91,6 @@ function createPropertyCard(property) {
                     ${property.banos > 0 ? `<span>${property.banos} baños</span>` : ''}
                     ${property.estacionamientos > 0 ? `<span>${property.estacionamientos} est.</span>` : ''}
                 </div>
-
-                ${property.asesor ? `
-                <div class="property-asesor" style="margin-top:1em; background:#eef; padding:0.5em; border-radius:6px;">
-                    <strong>Asesor responsable:</strong><br>
-                    Nombre: ${property.asesor.nombre}<br>
-                    Email: <a href="mailto:${property.asesor.email}">${property.asesor.email}</a><br>
-                    Teléfono: ${property.asesor.telefono}<br>
-                </div>
-                ` : ''}
             </div>
             <!-- Precio fuera de la imagen -->
             <div class="property-price-bottom">
@@ -427,7 +418,27 @@ function openModal(propertyId) {
                             margin: 0;
                         ">${property.descripcion || 'Sin descripción disponible'}</p>
                     </div>
-                    
+
+                    ${property.asesor ? `
+                    <div class="modal-asesor" style="
+                        padding: 15px 20px;
+                        background: #f0f5f8;
+                        border-radius: 10px;
+                        border-left: 4px solid #005580;
+                    ">
+                        <h3 style="
+                            color: #005580;
+                            margin: 0 0 8px 0;
+                            font-size: 1.1rem;
+                        ">Asesor responsable</h3>
+                        <p style="margin: 0; color: #333; line-height: 1.8; font-size: 0.95rem;">
+                            <strong>${property.asesor.nombre}</strong><br>
+                            <a href="mailto:${property.asesor.email}" style="color: #005580; text-decoration: none;">${property.asesor.email}</a><br>
+                            <a href="tel:${property.asesor.telefono.replace(/[^0-9]/g, '')}" style="color: #005580; text-decoration: none;">${property.asesor.telefono}</a>
+                        </p>
+                    </div>
+                    ` : ''}
+
                     ${property.imagenes && property.imagenes.length > 1 ? `
                         <div class="gallery-thumbnails" style="
                             display: grid;
