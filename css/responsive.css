@@ -10,11 +10,12 @@
    ============================================ */
 .praedium-digital-btn {
   position: absolute;
-  top: 20px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 30px;
   background: #005580;
   color: #fff;
-  padding: 8px 20px;
+  padding: 10px 24px;
   border-radius: 30px;
   font-weight: bold;
   font-size: 0.85em;
@@ -94,9 +95,8 @@
   }
 
   .praedium-digital-btn {
-    padding: 7px 16px;
+    padding: 8px 18px;
     font-size: 0.8em;
-    top: 15px;
     right: 20px;
   }
 }
