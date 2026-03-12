@@ -32,13 +32,21 @@
 }
 
 /* ============================================
-   CONTACT INFO - Emojis en escala de grises
+   CONTACT INFO - Icons and emojis
    ============================================ */
 .gray-icon {
   filter: grayscale(100%) brightness(10);
   opacity: 0.9;
   font-style: normal;
   font-size: 1.1em;
+}
+
+.footer-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  flex-shrink: 0;
 }
 
 .footer .contact-info li {
