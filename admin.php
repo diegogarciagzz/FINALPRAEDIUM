@@ -152,10 +152,9 @@ if ($debug_info) {
 <?php if (!$logged_in): ?>
     <!-- Formulario de login -->
     <div class="login-container">
-        <h2 style="text-align: center; color: #005580; margin-bottom: 2rem;">
-            Acceso Administrativo<br>
-            <small style="font-size: 0.6em; color: #666;">PRAEDIUM</small>
-        </h2>
+        <h1 style="text-align: center; color: #005580; margin-bottom: 2rem;">
+            Acceso PRAEDIUM
+        </h1>
         
         <form method="POST" action="admin.php" class="login-form">
             <div class="form-group">
