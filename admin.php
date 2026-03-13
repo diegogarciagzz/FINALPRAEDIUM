@@ -159,7 +159,7 @@ if ($debug_info) {
         <form method="POST" action="admin.php" class="login-form">
             <div class="form-group">
                 <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" value="Gjgarciam" required autocomplete="username">
+                <input type="text" id="username" name="username" value="" required autocomplete="username">
             </div>
             
             <div class="form-group">
